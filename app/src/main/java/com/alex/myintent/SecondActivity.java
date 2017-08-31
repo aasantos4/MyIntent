@@ -3,6 +3,7 @@ package com.alex.myintent;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -20,8 +21,13 @@ public class SecondActivity extends AppCompatActivity {
         tv_Greeting = (TextView) findViewById(R.id.tvGreeting);
         btn_Return = (Button) findViewById(R.id.btnReturn);
 
-        String name = getIntent().getExtras().getString("name");
+        String name = getIntent().getStringExtra("name");
 
         tv_Greeting.setText("Hello " + name);
+    }
+
+    public void goBackToMain (View view){
+        Intent intent2 = new Intent (this, MainActivity.class);
+        startActivity(intent2);
     }
 }
